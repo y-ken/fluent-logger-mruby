@@ -28,7 +28,7 @@ MRuby::Build.new do |conf|
   conf.gem :git => 'https://github.com/mattn/mruby-http.git'
   conf.gem :git => 'https://github.com/matsumoto-r/mruby-simplehttp.git'
   conf.gem :git => 'https://github.com/matsumoto-r/mruby-httprequest.git'
-  conf.gem :git => 'https://github.com/y-ken/mruby-fluent-logger.git'
+  conf.gem :git => 'https://github.com/y-ken/fluent-logger-mruby.git'
 
   ...snip...
 end
