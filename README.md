@@ -36,10 +36,12 @@ end
 
 ## Usage
 
+Currentry, it's only compatible with [in_http](http://docs.fluentd.org/articles/in_http) (http input plugin).
+
 #### Simple
 
 ```ruby
-log = Fluent::Logger.new(nil, :host=>'127.0.0.1', :port=>24224)
+log = Fluent::Logger.new(nil, :host=>'127.0.0.1', :port=>8888)
 log.post('myapp.access', {"agent"=>"foo"})
 
 # output: myapp.access {"agent":"foo"}
@@ -52,7 +54,7 @@ it doesn't supported.
 #### Tag prefix
 
 ```ruby
-log = Fluent::Logger.new('myapp', :host=>'127.0.0.1', :port=>24224)
+log = Fluent::Logger.new('myapp', :host=>'127.0.0.1', :port=>8888)
 log.post('access', {"agent"=>"foo"})
 
 # output: myapp.access {"agent":"foo"}
