@@ -1,7 +1,7 @@
 class Fluent
   
   class Logger
-    def initialize(tag_prefix, *args)
+    def initialize(tag_prefix=nil, *args)
       options = {
         :host => 'localhost',
         :port => 8888
@@ -16,7 +16,7 @@ class Fluent
       end
       host = options[:host]
       port = options[:port]
-      tag_prefix = "#{tag_prefix}."
+      tag_prefix = "#{tag_prefix}." if !tag_prefix.nil?
       @url = "http://#{host}:#{port}/#{tag_prefix}"
     end
 
