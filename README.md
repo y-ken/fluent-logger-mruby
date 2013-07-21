@@ -4,9 +4,6 @@ mruby-fluent-logger is mruby structured logger class for Fluentd.
 
 ## Requirements
 
-* libuv  
-https://github.com/joyent/libuv
-
 * mruby  
 https://github.com/mruby/mruby
 
@@ -17,9 +14,33 @@ https://github.com/bovi/mgem-list
 
 Let's add these gem line into `build_config.rb` and kick `rake` to build mruby.
 
+#### for Unix/Linux
+
 ```
 MRuby::Build.new do |conf|
+  ...snip...
 
+  conf.gem :git => 'https://github.com/iij/mruby-io.git'
+  conf.gem :git => 'https://github.com/iij/mruby-socket.git'
+  conf.gem :git => 'https://github.com/iij/mruby-pack.git'
+  conf.gem :git => 'https://github.com/mattn/mruby-json.git'
+  conf.gem :git => 'https://github.com/mattn/mruby-http.git'
+  conf.gem :git => 'https://github.com/y-ken/mruby-simplehttp-socket.git'
+  conf.gem :git => 'https://github.com/matsumoto-r/mruby-httprequest.git'
+  conf.gem :git => 'https://github.com/y-ken/fluent-logger-mruby.git'
+
+  ...snip...
+end
+```
+
+#### for Multi Platform
+
+install required package.
+
+* [libuv](https://github.com/joyent/libuv)
+
+```
+MRuby::Build.new do |conf|
   ...snip...
 
   conf.gem :git => 'https://github.com/iij/mruby-pack.git'
