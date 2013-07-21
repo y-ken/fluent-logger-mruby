@@ -7,9 +7,6 @@ mruby-fluent-logger is mruby structured logger class for Fluentd.
 * mruby  
 https://github.com/mruby/mruby
 
-* mgem  
-https://github.com/bovi/mgem-list
-
 ## Install
 
 Let's add these gem line into `build_config.rb` and kick `rake` to build mruby.
@@ -60,6 +57,13 @@ end
 Currentry, it's only compatible with [in_http](http://docs.fluentd.org/articles/in_http) (http input plugin).
 
 #### Simple
+
+```ruby
+log = Fluent::Logger.new()
+log.post('myapp.access', {"agent"=>"foo"})
+
+# output: myapp.access {"agent":"foo"}
+```
 
 ```ruby
 log = Fluent::Logger.new(nil, :host=>'127.0.0.1', :port=>8888)
