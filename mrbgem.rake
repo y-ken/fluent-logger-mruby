@@ -1,7 +1,18 @@
 MRuby::Gem::Specification.new('mruby-fluent-logger') do |spec|
-  spec.license = 'Apache License, Version 2.0'
+  spec.license = 'MIT'
   spec.authors = 'Kentaro Yoshida'
- 
+  spec.version = '0.0.1'
+  spec.homepage = 'https://github.com/y-ken/fluent-logger-mruby/'
+
+  # The dependency system is currently (May 2013) under development.
+  #spec.add_dependency('mruby-io')  
+  #spec.add_dependency('mruby-socket')
+  #spec.add_dependency('mruby-pack')
+  #spec.add_dependency('mruby-json')
+  #spec.add_dependency('mruby-http')
+  #spec.add_dependency('mruby-simplehttp-socket')
+  #spec.add_dependency('mruby-httprequest')
+
   # Add compile flags
   # spec.cc.flags << ''
 
