@@ -1,6 +1,6 @@
-# mruby-fluent-logger
+# mruby-fluent-logger (a.k.a. fluent-logger-mruby)
 
-mruby-fluent-logger is mruby structured logger class for Fluentd.
+mruby-fluent-logger is a structured logger class for Fluentd.
 
 ## Requirements
 
@@ -9,9 +9,9 @@ https://github.com/mruby/mruby
 
 ## Install
 
-Let's add these gem line into `build_config.rb` and kick `rake` to build mruby.
+Let's add these gem line into `build_config.rb` and execute `rake` to build mruby.
 
-#### for Unix/Linux
+#### for Unix/Linux/MacOSX
 
 ```
 MRuby::Build.new do |conf|
@@ -74,7 +74,7 @@ log.post('myapp.access', {"agent"=>"foo"})
 
 #### Singleton
 
-it doesn't supported.
+It's welcome pull requesting because it doesn't supported yet.
 
 #### Tag prefix
 
