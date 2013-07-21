@@ -1,6 +1,6 @@
-# mruby-fluent-logger (a.k.a. fluent-logger-mruby)
+# mruby-fluent-logger 
 
-mruby-fluent-logger is a structured logger class for Fluentd.
+mruby-fluent-logger (a.k.a. fluent-logger-mruby) is a structured logger class for Fluentd.
 
 ## Requirements
 
