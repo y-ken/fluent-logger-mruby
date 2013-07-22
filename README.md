@@ -7,6 +7,11 @@ mruby-fluent-logger (a.k.a. fluent-logger-mruby) is a structured logger class fo
 * mruby  
 https://github.com/mruby/mruby
 
+## Articles
+
+* mrubyからイベントログ収集ツールFluentdを扱う"mruby-fluent-logger"を公開しました  
+http://y-ken.hatenablog.com/entry/fluent-logger-mruby-has-released
+
 ## Install
 
 Let's add these gem line into `build_config.rb` and execute `rake` to build mruby.
