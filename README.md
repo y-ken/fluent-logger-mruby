@@ -14,7 +14,8 @@ http://y-ken.hatenablog.com/entry/fluent-logger-mruby-has-released
 
 ## Install
 
-Let's add these gem line into `build_config.rb` and execute `rake` to build mruby.
+Let's add these gem line into `build_config.rb` and execute `rake` to build mruby.  
+Another way to install this mrbgems, you can use [mgem](http://blog.mruby.sh/201301040627.html). 
 
 #### for Unix/Linux/MacOSX
 
