@@ -1,5 +1,5 @@
 class Fluent
-  
+
   class Logger
     def initialize(tag_prefix=nil, *args)
       options = {
@@ -23,7 +23,7 @@ class Fluent
     def post(tag, data)
       http = HttpRequest.new()
       http.post("#{@url}#{tag}", {
-        :json => JSON::stringify(data),
+        :msgpack => data.to_msgpack
       },{
         'Content-Type' => 'application/x-www-form-urlencoded',
       })
