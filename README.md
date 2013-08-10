@@ -4,7 +4,7 @@ mruby-fluent-logger (a.k.a. fluent-logger-mruby) is a structured logger class fo
 
 ## Requirements
 
-* mruby  
+* mruby
 https://github.com/mruby/mruby
 
 ## Articles
@@ -26,7 +26,7 @@ MRuby::Build.new do |conf|
   conf.gem :git => 'https://github.com/iij/mruby-io.git'
   conf.gem :git => 'https://github.com/iij/mruby-socket.git'
   conf.gem :git => 'https://github.com/iij/mruby-pack.git'
-  conf.gem :git => 'https://github.com/mattn/mruby-json.git'
+  conf.gem :git => 'https://github.com/suzukaze/mruby-msgpack.git'
   conf.gem :git => 'https://github.com/mattn/mruby-http.git'
   conf.gem :git => 'https://github.com/y-ken/mruby-simplehttp-socket.git'
   conf.gem :git => 'https://github.com/matsumoto-r/mruby-httprequest.git'
@@ -47,7 +47,7 @@ MRuby::Build.new do |conf|
   ...snip...
 
   conf.gem :git => 'https://github.com/iij/mruby-pack.git'
-  conf.gem :git => 'https://github.com/mattn/mruby-json.git'
+  conf.gem :git => 'https://github.com/suzukaze/mruby-msgpack.git'
   conf.gem :git => 'https://github.com/mattn/mruby-uv.git'
   conf.gem :git => 'https://github.com/mattn/mruby-http.git'
   conf.gem :git => 'https://github.com/matsumoto-r/mruby-simplehttp.git'
@@ -95,13 +95,11 @@ log.post('access', {"agent"=>"foo"})
 
 Pull requests are very welcome!!
 
-* support MessagePack after mruby-msgpack gets released.
-
 ## Copyright
 
 Copyright © 2013- Kentaro Yoshida (@yoshi_ken)
 
 ## License
 
-* MIT License  
+* MIT License
 http://www.opensource.org/licenses/mit-license.php
