@@ -1,7 +1,7 @@
 MRuby::Gem::Specification.new('mruby-fluent-logger') do |spec|
   spec.license = 'MIT'
   spec.authors = 'Kentaro Yoshida'
-  spec.version = '0.0.1'
+  spec.version = '0.0.2'
   spec.homepage = 'https://github.com/y-ken/fluent-logger-mruby'
 
   # The dependency system is currently (May 2013) under development.
