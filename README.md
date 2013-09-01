@@ -94,6 +94,9 @@ log.post('access', {"agent"=>"foo"})
 ## TODO
 
 Pull requests are very welcome!!
+I'm awaiting pull requests like below.
+
+* support fluentd forward input (port 24224)
 
 ## Copyright
 
