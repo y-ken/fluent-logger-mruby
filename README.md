@@ -79,6 +79,15 @@ log.post('myapp.access', {"agent"=>"foo"})
 # output: myapp.access {"agent":"foo"}
 ```
 
+with `type` argument(`type` = `http`).
+
+```ruby
+log = Fluent::Logger.new(nil, 'http', :host=>'127.0.0.1', :port=>'8888')
+log.post('test.hoge', {"message"=>"foo"})
+
+# output: test.hoge: {"message":"foo"}
+```
+
 #### Singleton
 
 It's welcome pull requesting because it doesn't supported yet.
@@ -93,6 +102,8 @@ log.post('access', {"agent"=>"foo"})
 ```
 
 #### forward to 24224
+
+Required `type` argument.(`type` = `tcp`)
 
 ```ruby
 log = Fluent::Logger.new(nil, 'tcp', :host=>'127.0.0.1', :port=>'24224')
