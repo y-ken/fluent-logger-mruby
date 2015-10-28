@@ -28,5 +28,14 @@ class Fluent
         'Content-Type' => 'application/x-www-form-urlencoded',
       })
     end
+
+    def post(tag, data)
+      timestamp = Time.now.to_i
+      record = [tag, timestamp, data]
+      s = TCPSocket.open("127.0.0.1", 24224)
+      s.write(record.to_msgpack)
+      s.close
+    end
+
   end
 end
