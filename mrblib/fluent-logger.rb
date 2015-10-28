@@ -10,7 +10,7 @@ class Fluent
       case args.first
         when String, Symbol
         options[:host] = args[0]
-        options[:port] = args[1] if args[1].nil? 
+        options[:port] = args[1] if args[1]
         when Hash
         options.merge!(args.first)
       end
