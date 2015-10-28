@@ -3,38 +3,51 @@ class Fluent
   class Logger
     def initialize(tag_prefix=nil, *args)
       options = {
+        :type => 'http',
         :host => 'localhost',
         :port => 8888
       }
       case args.first
         when String, Symbol
         # backward compatible
-        options[:host] = args[0]
-        options[:port] = args[1] if args[1]
+        options[:type] = args[0]
+        options[:port] = args[1]
+        options[:port] = args[2] if args[2]
         when Hash
         options.merge!(args.first)
       end
-      host = options[:host]
-      port = options[:port]
-      tag_prefix = "#{tag_prefix}." if !tag_prefix.nil?
-      @url = "http://#{host}:#{port}/#{tag_prefix}"
+      @type = options[:type]
+      @host = options[:host]
+      @port = options[:port]
+      @tag_prefix = "#{tag_prefix}." if !tag_prefix.nil?
     end
 
-    def post(tag, data)
+    def http_post(tag, data)
+      url = "http://#{@host}:#{@port}/#{@tag_prefix}"
       http = HttpRequest.new()
-      http.post("#{@url}#{tag}", {
+      http.post("#{url}#{tag}", {
         :msgpack => data.to_msgpack
       },{
         'Content-Type' => 'application/x-www-form-urlencoded',
       })
     end
 
-    def post(tag, data)
+    def tcp_post(tag, data)
       timestamp = Time.now.to_i
+      tag = "#{@tag_prefix}" + tag
       record = [tag, timestamp, data]
-      s = TCPSocket.open("127.0.0.1", 24224)
+      s = TCPSocket.open(@host, @port)
       s.write(record.to_msgpack)
       s.close
+    end
+
+    def post(tag, data)
+      case @type
+      when "http"
+        http_post(tag, data)
+      when "tcp"
+        tcp_post(tag, data)
+      end 
     end
 
   end
