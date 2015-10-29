@@ -60,7 +60,8 @@ end
 
 ## Usage
 
-Currentry, it's only compatible with [in_http](http://docs.fluentd.org/articles/in_http) (http input plugin).
+- [in_http](http://docs.fluentd.org/articles/in_http) (http input plugin).
+- [in_forward](http://docs.fluentd.org/articles/in_forward) (forward Input Plugin)(Required `protocol` argument.).
 
 #### Simple
 
@@ -78,6 +79,15 @@ log.post('myapp.access', {"agent"=>"foo"})
 # output: myapp.access {"agent":"foo"}
 ```
 
+with `protocol` argument(`:protocol => http`).
+
+```ruby
+log = Fluent::Logger.new(nil, :protocol=>'http', :host=>'127.0.0.1', :port=>'8888')
+log.post('test.hoge', {"message"=>"foo"})
+
+# output: test.hoge: {"message":"foo"}
+```
+
 #### Singleton
 
 It's welcome pull requesting because it doesn't supported yet.
@@ -89,6 +99,26 @@ log = Fluent::Logger.new('myapp', :host=>'127.0.0.1', :port=>8888)
 log.post('access', {"agent"=>"foo"})
 
 # output: myapp.access {"agent":"foo"}
+```
+
+#### forward to 24224
+
+Required `protocol` argument.
+
+```ruby
+log = Fluent::Logger.new(nil, :protocol=> 'tcp', :host=>'127.0.0.1', :port=>'24224')
+log.post('test.hoge', {"message"=>"foo"})
+
+# output: test.hoge: {"message":"foo"}
+```
+
+with Tag prefix.
+
+```ruby
+log = Fluent::Logger.new("mruby.tcp", :protocol=>'tcp', :host=>'127.0.0.1', :port=>'24224')
+log.post('test.hoge', {"message"=>"foo"})
+
+# output: mruby.tcp.test.hoge: {"message":"foo"}
 ```
 
 ## TODO
