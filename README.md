@@ -61,7 +61,7 @@ end
 ## Usage
 
 - [in_http](http://docs.fluentd.org/articles/in_http) (http input plugin).
-- [in_forward](http://docs.fluentd.org/articles/in_forward) (forward Input Plugin)(Required `type` argument.).
+- [in_forward](http://docs.fluentd.org/articles/in_forward) (forward Input Plugin)(Required `protocol` argument.).
 
 #### Simple
 
@@ -79,10 +79,10 @@ log.post('myapp.access', {"agent"=>"foo"})
 # output: myapp.access {"agent":"foo"}
 ```
 
-with `type` argument(`type` = `http`).
+with `protocol` argument(`:protocol => http`).
 
 ```ruby
-log = Fluent::Logger.new(nil, 'http', :host=>'127.0.0.1', :port=>'8888')
+log = Fluent::Logger.new(nil, :protocol=>'http', :host=>'127.0.0.1', :port=>'8888')
 log.post('test.hoge', {"message"=>"foo"})
 
 # output: test.hoge: {"message":"foo"}
@@ -103,10 +103,10 @@ log.post('access', {"agent"=>"foo"})
 
 #### forward to 24224
 
-Required `type` argument.(`type` = `tcp`)
+Required `protocol` argument.
 
 ```ruby
-log = Fluent::Logger.new(nil, 'tcp', :host=>'127.0.0.1', :port=>'24224')
+log = Fluent::Logger.new(nil, :protocol=> 'tcp', :host=>'127.0.0.1', :port=>'24224')
 log.post('test.hoge', {"message"=>"foo"})
 
 # output: test.hoge: {"message":"foo"}
@@ -115,7 +115,7 @@ log.post('test.hoge', {"message"=>"foo"})
 with Tag prefix.
 
 ```ruby
-log = Fluent::Logger.new("mruby.tcp", 'tcp', :host=>'127.0.0.1', :port=>'24224')
+log = Fluent::Logger.new("mruby.tcp", :protocol=>'tcp', :host=>'127.0.0.1', :port=>'24224')
 log.post('test.hoge', {"message"=>"foo"})
 
 # output: mruby.tcp.test.hoge: {"message":"foo"}

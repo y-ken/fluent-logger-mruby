@@ -1,9 +1,9 @@
 class Fluent
 
   class Logger
-    def initialize(tag_prefix=nil, type=nil, *args)
+    def initialize(tag_prefix=nil, *args)
       options = {
-        :type => 'http',
+        :protocol => 'http',
         :host => 'localhost',
         :port => 8888
       }
@@ -14,7 +14,7 @@ class Fluent
         when Hash
         options.merge!(args.first)
       end
-      @type = type if !type.nil?
+      @protocol = options[:protocol]
       @host = options[:host]
       @port = options[:port]
       @tag_prefix = "#{tag_prefix}." if !tag_prefix.nil?
@@ -40,7 +40,7 @@ class Fluent
     end
 
     def post(tag, data)
-      case @type
+      case @protocol
         when "tcp"
         tcp_post(tag, data)
         when "http"
